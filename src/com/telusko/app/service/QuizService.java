@@ -70,7 +70,7 @@ public class QuizService
 				+ "	solve();\r\n"
 				+ "	return 0;\r\n"
 				+ "}", "Medium","12", "24", "20", "18", "20");
-		questions[14] = new Question(5, "C", "20. \r\n"
+		questions[14] = new Question(5, "C", " \r\n"
 				+ "What will be the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "#include <stdio.h>\r\n"
