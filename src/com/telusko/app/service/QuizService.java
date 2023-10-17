@@ -6,29 +6,35 @@ import com.telusko.app.dao.Quiz;
 
 public class QuizService 
 {
-	Question questions[] =new Question[15];
+	Question questions[] =new Question[18];
 	static int score=0;
 	
 	public QuizService()
 	{
-		questions[0] = new Question(1, "Java", "size of int","Hard", "2", "6", "4", "8", "4");
-		questions[1] = new Question(2, "Java", "size of double","Hard" ,"2", "6", "4", "8", "8");
-		questions[2] = new Question(3, "Java", "size of char","easy", "2", "6", "4", "8", "2");
-		questions[3] = new Question(4, "Java", "size of long", "medium","2", "6", "4", "8", "8");
-		questions[4] = new Question(5, "Java", "size of float","medium", "1", "2", "4", "8", "4");
+		questions[0] = new Question(1, "Java", "size of int","Easy", "2", "6", "4", "8", "4");
+		questions[1] = new Question(2, "Java", "size of double","Easy" ,"2", "6", "4", "8", "8");
+		questions[2] = new Question(3, "Java", "default capacity of StringBuffer/StringBuilder class","Hard", "0", "16", "34", "18", "16");
+		questions[3] = new Question(4, "Java", "In java Array is treated as an- ", "Hard","class", "object", "method", "variable", "object");
+		questions[4] = new Question(5, "Java", "this keyword refered as","medium", "current object", "parent class", "main method", "final variable", "current object");
+		questions[5] = new Question(6, "Java", "in java object created on","medium", "heap", "stack", "method area", "constructor", "heap");
 		
-		questions[5] = new Question(1, "Spring Boot", "Which Spring annotation is used to handle HTTP PUT requests?","easy",
+		questions[6] = new Question(1, "Spring Boot", "Which Spring annotation is used to handle HTTP PUT requests?","Medium",
 				"@GetMapping", "@PutMapping", "@PostMapping", "@DeleteMapping", "@PutMapping");
-		questions[6] = new Question(2, "Spring Boot", "Which Spring annotation is used to handle HTTP POST requests?","easy",
+		questions[7] = new Question(2, "Spring Boot", "Which Spring annotation is used to handle HTTP POST requests?","Easy",
 				"@GetMapping", "@PutMapping", "@PostMapping", "@DeleteMapping", "@PostMapping");
-		questions[7] = new Question(3, "Spring Boot", "Which Spring annotation is used to handle HTTP DELETE requests?","Hard",
+		questions[8] = new Question(3, "Spring Boot", "Which Spring annotation is used to handle HTTP DELETE requests?","Easy",
 				"@GetMapping", "@PutMapping", "@PostMapping", "@DeleteMapping", "@DeleteMapping");
-		questions[8] = new Question(4, "Spring Boot", "Which Spring annotation is used to handle HTTP GET requests?","Hard",
+		questions[9] = new Question(4, "Spring Boot", "Which Spring annotation is used to handle HTTP GET requests?","Medium",
 				"@GetMapping", "@PutMapping", "@PostMapping", "@DeleteMapping", "@GetMapping");
-		questions[9] = new Question(5, "Spring Boot",
-				"Which annotation do we use to mark the class as a Service class/component?","Medium", "@Service", "@Controller",
+		questions[10] = new Question(5, "Spring Boot",
+				"Which annotation do we use to mark the class as a Service class/component?","Hard", "@Service", "@Controller",
 				"@Repository", "@Component", "@Service");
-		questions[10] = new Question(1, "C", "What will be the output of the following code snippet?\r\n"
+		questions[11] = new Question(5, "Spring Boot",
+				"Which starter dependency is used to develop web applications or Restful web services\nspring-boot-starter-data-??","Hard", "@jpa", "@web",
+				"@rest", "@None", "@web");
+		
+		
+		questions[12] = new Question(1, "C", "What will be the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "#include <stdio.h>\r\n"
 				+ "int main() {\r\n"
@@ -38,15 +44,15 @@ public class QuizService
 				+ "	b = t;\r\n"
 				+ "	printf(\"%d %d\", a, b);\r\n"
 				+ "	return 0;\r\n"
-				+ "}", "3 5","Hard","3 3", "5 3", "5 5", "5 3");
-		questions[11] = new Question(2, "C", "What is the output of the following code snippet?\r\n"
+				+ "}", "3 5","Medium","3 3", "5 3", "5 5", "5 3");
+		questions[13] = new Question(2, "C", "What is the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "int main() {\r\n"
 				+ "	int sum = 2 + 4 / 2 + 6 * 2;\r\n"
 				+ "	printf(\"%d\", sum);\r\n"
 				+ "	return 0;\r\n"
 				+ "}","Hard", "2", "15", "16", "18", "16");
-		questions[12] = new Question(3, "C", "What is the output of the following code snippet?\r\n"
+		questions[14] = new Question(3, "C", "What is the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "#include <stdio.h>\r\n"
 				+ "int main() {\r\n"
@@ -56,8 +62,8 @@ public class QuizService
 				+ "	    sum += a[i];\r\n"
 				+ "	}\r\n"
 				+ "	printf(\"%d\", sum);\r\n"
-				+ "	return 0;","Medium", "1", "4", "20", "10", "10");
-		questions[13] = new Question(4, "C", " \r\n"
+				+ "	return 0;","Easy", "1", "4", "20", "10", "10");
+		questions[15] = new Question(4, "C", " \r\n"
 				+ "What will be the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "#include <stdio.h>\r\n"
@@ -69,8 +75,8 @@ public class QuizService
 				+ "int main() {\r\n"
 				+ "	solve();\r\n"
 				+ "	return 0;\r\n"
-				+ "}", "Medium","12", "24", "20", "18", "20");
-		questions[14] = new Question(5, "C", " \r\n"
+				+ "}", "Hard","12", "24", "20", "18", "20");
+		questions[16] = new Question(5, "C", " \r\n"
 				+ "What will be the output of the following code snippet?\r\n"
 				+ "\r\n"
 				+ "#include <stdio.h>\r\n"
@@ -82,8 +88,9 @@ public class QuizService
 				+ "int main() {\r\n"
 				+ "	solve();\r\n"
 				+ "	return 0;\r\n"
-				+ "}","Easy", "104", "24", "10", "34", "34");
+				+ "}","Medium", "104", "24", "10", "34", "34");
 		
+		questions[17] = new Question(5,"C"," What is an example of iteration in C?","Easy", "for", "while", "do-whiile", "All", "All");
 	}
 	public String userInput()
 	{

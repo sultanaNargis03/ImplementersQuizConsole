@@ -36,7 +36,8 @@ public class LaunchQuiz
 						((level.equalsIgnoreCase("Basic")||level.equalsIgnoreCase("Intermediate")||level.equalsIgnoreCase("Advanced"))))
 				{	
 					QuizService service = new QuizService();
-					service.playQuiz(topic,level);		
+					service.playQuiz(topic,level);	
+					System.out.println("Thank you for playing!!");
 				}
 				else
 				{
