@@ -59,7 +59,7 @@ public class LaunchQuiz
 				}
 				}while(!valid2);
 				
-				valid=true;
+				//valid=true;
 			}
 			
 			else if(input.equalsIgnoreCase("N"))
