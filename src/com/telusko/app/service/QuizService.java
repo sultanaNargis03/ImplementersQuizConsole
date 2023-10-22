@@ -103,11 +103,11 @@ public class QuizService
 	}
 	public int calculateScore(String userAnswer,Question q)
 	{
+		userAnswer=userAnswer.trim();
 		//compare the right answer with user answer and calculate the score acc.
 		if (userAnswer.equalsIgnoreCase("skip")) 
 		{
 			System.out.println("you have skipped the question"+q.getId()+"!");
-			score += 0;
 		} 
 		else 
 		{
