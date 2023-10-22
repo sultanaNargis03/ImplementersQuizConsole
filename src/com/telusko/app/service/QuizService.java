@@ -2,7 +2,7 @@ package com.telusko.app.service;
 import java.util.Scanner;
 
 import com.telusko.app.dao.Question;
-import com.telusko.app.dao.Quiz;
+
 
 public class QuizService 
 {
