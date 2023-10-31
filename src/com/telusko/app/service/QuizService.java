@@ -1,4 +1,5 @@
 package com.telusko.app.service;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.telusko.app.dao.Question;
@@ -92,18 +93,68 @@ public class QuizService
 		
 		questions[17] = new Question(5,"C"," What is an example of iteration in C?","Easy", "for", "while", "do-whiile", "All", "All");
 	}
-	public String userInput()
+	public String userInput(Question q) throws NullPointerException
 	{
+		String answer=null;
 		//taking answer from user
-		System.out.println("Enter answer for Question " + "\t*** to skip the question please enter skip");
-		Scanner sc = new Scanner(System.in);
-		String userAnswer = sc.nextLine();
+		try 
+		{
+			System.out.println("Pleae enter your answer \t*** to skip the question please enter skip");
+			Scanner sc = new Scanner(System.in);
+			String userAnswer = sc.next();
+			//userAnswer=userAnswer.trim();
+			if(
+					userAnswer.equalsIgnoreCase(q.getOption1())||userAnswer.equalsIgnoreCase(q.getOption2())
+					||userAnswer.equalsIgnoreCase(q.getOption3())||userAnswer.equalsIgnoreCase(q.getOption4())||userAnswer.equalsIgnoreCase("skip")
+				)
+			{
+				answer=userAnswer;
+			}
+			
+			else {
+				throw new InputMismatchException();
+			}
+		}
+		catch(InputMismatchException  ime)
+		{
+			System.out.println("Please choose the answer from the given options ");
+			try 
+			{
+				System.out.println("Please enter your answer again\t*** to skip the question please enter skip");
+				Scanner sc = new Scanner(System.in);
+				String userAnswer = sc.nextLine();
+				//userAnswer=userAnswer.trim();
+				if(
+						userAnswer.equalsIgnoreCase(q.getOption1())||userAnswer.equalsIgnoreCase(q.getOption2())
+						||userAnswer.equalsIgnoreCase(q.getOption3())||userAnswer.equalsIgnoreCase(q.getOption4())||userAnswer.equalsIgnoreCase("skip")
+					)
+				{
+					answer=userAnswer;
+				}
+				
+				else {
+					throw new InputMismatchException();
+				}
+			}
+			catch(InputMismatchException ime2)
+			{
+				System.out.println("sorry!! we can't accept your answer");
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 		
-		return userAnswer;
+		return answer;
 	}
 	public int calculateScore(String userAnswer,Question q)
 	{
-		userAnswer=userAnswer.trim();
+		//userAnswer=userAnswer.trim();
 		//compare the right answer with user answer and calculate the score acc.
 		if (userAnswer.equalsIgnoreCase("skip")) 
 		{
@@ -137,8 +188,20 @@ public class QuizService
 					System.out.println(q.getId() + ". " + q.getQuestionTitle());
 					System.out.println(
 							"A." + q.getOption1() + " B." + q.getOption2() + " C." + q.getOption3() + " D." + q.getOption4());
-					String userAnswer =userInput();
-					calculateScore(userAnswer,q);	
+
+					try {
+					String userAnswer =userInput(q);
+					calculateScore(userAnswer,q);
+					}
+					catch(NullPointerException e)
+					{
+						System.out.println("no marks will be added for this question!!");
+					}
+					catch(Exception e)
+					{
+						System.out.println(e.getMessage());
+					}
+					
 				}
 			}
 			else if(level.equalsIgnoreCase("Intermediate"))
@@ -148,8 +211,18 @@ public class QuizService
 					System.out.println(q.getId() + ". " + q.getQuestionTitle());
 					System.out.println(
 							"A." + q.getOption1() + " B." + q.getOption2() + " C." + q.getOption3() + " D." + q.getOption4());
-					String userAnswer =userInput();
-					calculateScore(userAnswer,q);	
+					try {
+						String userAnswer =userInput(q);
+						calculateScore(userAnswer,q);
+						}
+						catch(NullPointerException e)
+						{
+							System.out.println("sorry!! we can't accept your answer");
+						}
+						catch(Exception e)
+						{
+							System.out.println(e.getMessage());
+						}
 				}
 			}
 			else if(level.equalsIgnoreCase("Advanced"))
@@ -159,8 +232,18 @@ public class QuizService
 					System.out.println(q.getId() + ". " + q.getQuestionTitle());
 					System.out.println(
 							"A." + q.getOption1() + " B." + q.getOption2() + " C." + q.getOption3() + " D." + q.getOption4());
-					String userAnswer =userInput();
-					calculateScore(userAnswer,q);	
+					try {
+						String userAnswer =userInput(q);
+						calculateScore(userAnswer,q);
+						}
+						catch(NullPointerException e)
+						{
+							System.out.println("sorry!! we can't accept your answer");
+						}
+						catch(Exception e)
+						{
+							System.out.println(e.getMessage());
+						}
 				}
 			}
 			else

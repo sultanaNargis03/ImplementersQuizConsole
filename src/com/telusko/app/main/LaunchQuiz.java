@@ -23,7 +23,8 @@ public class LaunchQuiz
 		boolean valid2=false;
 		boolean valid3=false;
 		int count=0;
-		
+//		try 
+//		{
 		do {
 			if(count==0)
 			{
@@ -50,10 +51,13 @@ public class LaunchQuiz
 					String level=sc.nextLine();
 					if((level.equalsIgnoreCase("Basic")||level.equalsIgnoreCase("Intermediate")||level.equalsIgnoreCase("Advanced")))
 					{
+						
 						QuizService service = new QuizService();
 						service.playQuiz(topic,level);	
 						System.out.println("Thank you for playing!!");
+						
 						valid3=true;
+						
 					}
 					else
 					{
@@ -81,6 +85,10 @@ public class LaunchQuiz
 				System.out.println("Please enter a correct input");
 			}
 		}while(!valid);
-					
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("Something went wrong!!");
+//		}			
 	}
 }
