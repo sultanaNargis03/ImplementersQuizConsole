@@ -22,9 +22,18 @@ public class LaunchQuiz
 		boolean valid=false;
 		boolean valid2=false;
 		boolean valid3=false;
+		int count=0;
 		
 		do {
-			System.out.println("Are you ready to play(Y/N)?");
+			if(count==0)
+			{
+				System.out.println("Are you ready to play(Y/N)?");
+				count++;
+			}
+			else
+			{
+				System.out.println("Do you want to play again(Y/N)?");
+			}
 			Scanner sc = new Scanner(System.in);
 			
 			String input = sc.nextLine();
