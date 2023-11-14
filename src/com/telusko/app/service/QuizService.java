@@ -1,10 +1,9 @@
 package com.telusko.app.service;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 import com.telusko.app.dao.Question;
 
@@ -177,8 +176,8 @@ public class QuizService
 
 			List<Question> s1=
 					questions.stream()
-								.filter(i->i.getDifficultyLevel().equalsIgnoreCase(level))
 								.filter(j->j.getCategory().equalsIgnoreCase(topic))
+								.filter(i->i.getDifficultyLevel().equalsIgnoreCase(level))
 								.toList();
 								;
 								
